@@ -9,9 +9,9 @@ permissions:
     contents: read
 
 env:
-    login-server: icicicd.azurecr.io 
-    username: icicicd
-    password: 7nncmS5r6FPMk1PDdPPZ0zsD3LdH0pHeRJlfhLzQS7+ACRAC5bkj
+    login-server: icicihelmreg.azurecr.io 
+    username: icicihelmreg
+    password: yPfDLmKHmjWu5IXK883sgMny9g+ZWIV/68Iy4uZ1Gv+ACRA6En5Z
 jobs:
 
     acrjob:
@@ -33,8 +33,8 @@ jobs:
                     password: ${{env.password}}
             - name: building and psuhing image
               run:  |
-                  docker build -t icicicd.azurecr.io/icicicd/nodejsproject:1.0.0 .
+                  docker build -t icicihelmreg.azurecr.io/icicihelmreg/nodejsproject:1.0.0 .
                   docker images
-                  docker push icicicd.azurecr.io/icicicd/nodejsproject:1.0.0
+                  docker push icicihelmreg.azurecr.io/icicihelmreg/nodejsproject:1.0.0
                   
             
