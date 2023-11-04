@@ -19,6 +19,7 @@ jobs:
          steps:
             - name: checkout the code
               uses: actions/checkout@v3
+              #log into azure
             - name: azure credentials
               uses: azure/login@v1
               with:
