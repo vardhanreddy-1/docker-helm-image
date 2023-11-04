@@ -4,6 +4,9 @@ on:
     push:
          branches:
             - main
+permissions:
+    id-token: write
+    contents: read
 
 env:
     login-server: icicicd.azurecr.io 
@@ -22,7 +25,7 @@ jobs:
                      client-id:  ${{secrets.CLIENT_ID}}
                      tenant-id:  ${{secrets.TENANT_ID}}
                      subscription-id:  ${{secrets.SUBSCRIPTION_ID}}
-                     
+
             - name: docker credentials
               uses: azure/docker-login@v1
               with:
