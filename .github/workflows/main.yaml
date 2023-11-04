@@ -22,10 +22,7 @@ jobs:
             - name: azure credentials
               uses: azure/login@v1
               with:
-                     client-id:  ${{secrets.CLIENT_ID}}
-                     tenant-id:  ${{secrets.TENANT_ID}}
-                     subscription-id:  ${{secrets.SUBSCRIPTION_ID}}
-
+                    creds: ${{ secrets.AZURE_CREDS }}
             - name: docker credentials
               uses: azure/docker-login@v1
               with:
