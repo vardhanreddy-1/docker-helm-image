@@ -1,0 +1,30 @@
+name: docker-image-push
+
+on:
+    push:
+         branches:
+            - main
+
+env:
+    login-server: icicicd.azurecr.io 
+    username: icicicd
+    password: 7nncmS5r6FPMk1PDdPPZ0zsD3LdH0pHeRJlfhLzQS7+ACRAC5bkj
+jobs:
+
+    acrjob:
+         runs-on: ubuntu-latest
+         steps:
+            - name: checkout the code
+              uses: actions/checkout@v3
+            - name: docker credentials
+              uses: azure/docker-login@v1
+              with:
+                    login-server: ${{env.login-server}}
+                    username: ${{env.username}}
+                    password: ${{env.password}}
+            - name: building and psuhing image
+              run:  |
+                  docker build -t icicicd.azurecr.io/icicicd/nodejsproject:1.0.0 .
+                  docker push icicicd.azurecr.io/icicicd/nodejsproject:1.0.0
+            
+            
