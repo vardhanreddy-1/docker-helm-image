@@ -25,6 +25,7 @@ jobs:
             - name: building and psuhing image
               run:  |
                   docker build -t icicicd.azurecr.io/icicicd/nodejsproject:1.0.0 .
+                  docker images
                   docker push icicicd.azurecr.io/icicicd/nodejsproject:1.0.0
-            
+                  
             
