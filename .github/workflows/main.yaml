@@ -42,8 +42,8 @@ jobs:
                     password: ${{env.password}}
             - name: building and pushing image
               run:  |
-                  docker build -t  icicicd.azurecr.io/iccdimg/helmimg:1.0 .
+                  docker build -t  icicicd.azurecr.io/helmimg:1.0 .
                   docker images
-                  docker push icicicd.azurecr.io/iccdimg/helmimg:1.0
+                  docker push icicicd.azurecr.io/helmimg:1.0
                   
             
