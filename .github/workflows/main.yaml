@@ -9,9 +9,9 @@ permissions:
     contents: read
 
 env:
-    login-server: icicihelmreg.azurecr.io 
-    username: icicihelmreg
-    password: yPfDLmKHmjWu5IXK883sgMny9g+ZWIV/68Iy4uZ1Gv+ACRA6En5Z
+    login-server: icicicd.azurecr.io
+    username: icicicd
+    password: HEmtpjQSzDGqX63ALs/VURKXYojoFiRt9ks3saXXxL+ACRDTBkhU
 jobs:
 
     acrjob:
@@ -20,6 +20,14 @@ jobs:
             - name: checkout the code
               uses: actions/checkout@v3
               #log into azure
+              # $role="contributor"
+              # $serviceprincipalname = "iciciproj"
+              # $resourcegroupname= "icicirg"
+              # $subscriptionID= $(az account show --query id --output tsv)
+              #  az ad sp create-for-rbac --role $role 
+              #                           --name $serviceprincipalname
+              #                           --scopes /subscriptions/$subscriptionID/resourceGroups/$resourcegroupname 
+              #                           --sdk--auth
             - name: azure credentials
               uses: azure/login@v1
               with:
@@ -33,8 +41,8 @@ jobs:
                     password: ${{env.password}}
             - name: building and psuhing image
               run:  |
-                  docker build -t icicihelmreg.azurecr.io/icicihelmreg/nodejsproject:1.0.0 .
+                  docker build -t  icicicd.azurecr.io/iccdimg/helmimg:1.0
                   docker images
-                  docker push icicihelmreg.azurecr.io/icicihelmreg/nodejsproject:1.0.0
+                  docker push icicicd.azurecr.io/iccdimg/helmimg:1.0
                   
             
