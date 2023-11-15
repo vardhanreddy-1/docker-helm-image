@@ -32,7 +32,7 @@ jobs:
               uses: azure/login@v1
               with:
                     creds: ${{ secrets.AZURE_CREDS }}
-             #       
+             # Here we are using the service principal    
             - name: docker credentials
               uses: azure/docker-login@v1
               with:
