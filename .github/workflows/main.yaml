@@ -11,7 +11,7 @@ permissions:
 env:
     login-server: icicicd.azurecr.io
     username: icicicd
-    password: HEmtpjQSzDGqX63ALs/VURKXYojoFiRt9ks3saXXxL+ACRDTBkhU
+    password: bWKlPGHBb14vPrg4RYiQPBYShghgdjVk6cWzqKv125+ACRAePX26
 jobs:
 
     acrjob:
@@ -34,16 +34,16 @@ jobs:
                    creds: ${{secrets.AZURE_CREDS}}
              # Here we are using the service principal
              # Above is the second method of login OPEN ID CONNECT 
-           # - name: docker credentials
-           #   uses: azure/docker-login@v1
-           #   with:
-           #         login-server: ${{env.login-server}}
-           #         username: ${{env.username}}
-           #         password: ${{env.password}}
-           # - name: building and psuhing image
-           #   run:  |
-           #       docker build -t  icicicd.azurecr.io/iccdimg/helmimg:1.0
-           #       docker images
-           #       docker push icicicd.azurecr.io/iccdimg/helmimg:1.0
+            - name: docker credentials
+              uses: azure/docker-login@v1
+              with:
+                    login-server: ${{env.login-server}}
+                    username: ${{env.username}}
+                    password: ${{env.password}}
+            - name: building and psuhing image
+              run:  |
+                  docker build -t  icicicd.azurecr.io/iccdimg/helmimg:1.0
+                  docker images
+                  docker push icicicd.azurecr.io/iccdimg/helmimg:1.0
                   
             
