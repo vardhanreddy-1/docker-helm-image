@@ -40,9 +40,9 @@ jobs:
                     login-server: ${{env.login-server}}
                     username: ${{env.username}}
                     password: ${{env.password}}
-            - name: building and psuhing image
+            - name: building and pushing image
               run:  |
-                  docker build -t  icicicd.azurecr.io/iccdimg/helmimg:1.0
+                  docker build -t  icicicd.azurecr.io/iccdimg/helmimg:1.0 .
                   docker images
                   docker push icicicd.azurecr.io/iccdimg/helmimg:1.0
                   
